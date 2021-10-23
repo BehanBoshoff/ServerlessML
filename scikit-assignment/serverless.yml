@@ -1,0 +1,44 @@
+service: house-price-prediction
+
+provider:
+  name: aws
+  runtime: python3.6
+  stage: dev
+  region: af-south-1
+
+package:
+  exclude:
+    - node_modules/**
+    - .vscode/**
+    - __pycache__/**
+    - .ipynb_checkpoints/**
+    - (*).ipynb
+
+
+functions:
+  predict-price:
+    handler: handler.predict
+    memorySize: 512
+    timeout: 30
+    events:
+      - http:
+          path: /get-price
+          method: get
+          request:
+            parameters:
+              querystrings:
+                medInc: true
+                houseAge: true
+                aveRooms: true
+                aveBedrms: true
+                population: true
+                aveOccup: true
+                latitude: true
+                longitude: true
+
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    slim: true 

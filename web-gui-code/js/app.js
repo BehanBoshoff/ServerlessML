@@ -1,6 +1,6 @@
 
 // Endpoint URL for California Housing price prediction regression model
-const housingEndpoint = '';
+const housingEndpoint = 'https://w09yb3cxsa.execute-api.af-south-1.amazonaws.com/dev/get-price';
 
 // Endpoint URL for Named Entity Recognition
 const nerEndpoint = '';

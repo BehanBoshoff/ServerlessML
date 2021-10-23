@@ -1,0 +1,23 @@
+service: hello-service
+
+provider:
+    name: aws
+    runtime: python3.6
+    lambdaHashingVersion: 20201221
+    stage: dev
+    region: us-east-2
+
+package:
+    exclude:
+        - .vscode/**
+
+functions:
+    hello:
+        handler: handler.hello
+        memorySize: 128
+        timeout: 29
+
+        events:
+            - httpApi:
+                method: GET  
+                path: /hello

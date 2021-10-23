@@ -1,48 +1,50 @@
 
-service: california-housing
+service: california-housing # NOTE: update this with your service name
 
-frameworkVersion: '2'
 
 provider:
-    name: aws
-    runtime: python3.6
-    stage: dev
-    region: us-east-2
+  name: aws
+  runtime: python3.6
+  stage: dev
+  region: af-south-1
 
+# you can add packaging information here
 package:
-    exclude:
-        - node_modules/**
-        - vscode/**
-        - __pycache__/**
-        - .ipynb_checkpoints/**
-        - (*).ipynb
+#  include:
+#    - include-me.py
+#    - include-me-dir/**
+  exclude:
+    - node_modules/**
+    - .vscode/**
+    - __pycache__/**
+    - .ipynb_checkpoints/**
+    - (*).ipynb
 
 
 functions:
-    predict-price:
-        handler: handler.predict
-        memorySize: 512
-        timeout: 30
-        events:
-            - http:
-                method: GET
-                path: /get-price
-                request:
-                    parameters:
-                        querystrings:
-                            medInc: true
-                            houseAge: true
-                            aveRooms: true
-                            aveBedrms: true
-                            population: true
-                            aveOccup: true
-                            latitude: true
-                            longitude: true
+  predict-price:
+    handler: handler.predict
+    memorySize: 512
+    timeout: 30
+    events:
+      - http:
+          path: /get-price
+          method: get
+          request:
+            parameters:
+              querystrings:
+                medInc: true
+                houseAge: true
+                aveRooms: true
+                aveBedrms: true
+                population: true
+                aveOccup: true
+                latitude: true
+                longitude: true
 
 plugins:
-    - serverless-python-requirements
-
+  - serverless-python-requirements
 custom:
-    pythonRequirements:
-        dockerizePip: true
-        slim: true
+  pythonRequirements:
+    dockerizePip: true
+    slim: true 

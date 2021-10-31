@@ -6,7 +6,7 @@ const housingEndpoint = 'https://w09yb3cxsa.execute-api.af-south-1.amazonaws.com
 const nerEndpoint = 'https://hx690i5264.execute-api.af-south-1.amazonaws.com/dev/ner';
 
 // Endpoint URL for PoS tagging and dependency parsing
-const parseEndpoint = ''; 
+const parseEndpoint = 'https://gkuf65wpcg.execute-api.af-south-1.amazonaws.com/dev/parse'; 
 
 // S3 bucket name for image uploads
 const uploadBucketName = '';

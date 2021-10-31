@@ -3,7 +3,7 @@
 const housingEndpoint = 'https://w09yb3cxsa.execute-api.af-south-1.amazonaws.com/dev/get-price';
 
 // Endpoint URL for Named Entity Recognition
-const nerEndpoint = '';
+const nerEndpoint = 'https://hx690i5264.execute-api.af-south-1.amazonaws.com/dev/ner';
 
 // Endpoint URL for PoS tagging and dependency parsing
 const parseEndpoint = ''; 
@@ -12,7 +12,7 @@ const parseEndpoint = '';
 const uploadBucketName = '';
 
 // AWS region of the above S3 bucket for image uploads
-const bucketRegion = '';
+const bucketRegion = 'af-south-1';
 
 // AWS identity pool ID for uploading images to S3 bucket
 const identityPoolId = '';
